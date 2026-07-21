@@ -1,26 +1,461 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #111827;
+
+  /* Pastels */
+  --blue: #eef4ff;
+  --green: #edfdf4;
+  --yellow: #fff8e6;
+  --pink: #fff0f4;
+  --purple: #f5efff;
+  --gray: #f6f7fb;
+
+  /* Primary */
+  --primary: #5b6cff;
+  --primary-light: #7f8cff;
+
+  /* Borders */
+  --border: rgba(0,0,0,.05);
+
+  /* Shadows */
+  --shadow-sm:
+          0 4px 10px rgba(17,24,39,.03);
+
+  --shadow:
+          0 10px 30px rgba(17,24,39,.06);
+
+  --shadow-lg:
+          0 20px 60px rgba(17,24,39,.08);
+
+  /* Radius */
+
+  --radius-card:28px;
+  --radius-button:18px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html{
+  scroll-behavior:smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body{
+  background:var(--background);
+  color:var(--foreground);
+
+  font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          sans-serif;
+
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{
+  background:#5b6cff;
+  color:white;
+}
+
+/* -------------------------------- */
+/* Background */
+/* -------------------------------- */
+
+.page-background{
+
+  background:
+          radial-gradient(
+                  circle at top,
+                  rgba(96,165,250,.15),
+                  transparent 35%
+          ),
+
+          radial-gradient(
+                  circle at bottom right,
+                  rgba(134,239,172,.2),
+                  transparent 30%
+          ),
+
+          radial-gradient(
+                  circle at left,
+                  rgba(244,114,182,.1),
+                  transparent 25%
+          ),
+
+          #fafafa;
+}
+
+/* -------------------------------- */
+/* Containers */
+/* -------------------------------- */
+
+.container-page{
+  max-width:1200px;
+  margin:auto;
+  padding-inline:24px;
+}
+
+/* -------------------------------- */
+/* Cards */
+/* -------------------------------- */
+
+.card{
+
+  border-radius:28px;
+
+  background:white;
+
+  border:1px solid var(--border);
+
+  box-shadow:var(--shadow);
+
+  transition:.25s;
+}
+
+.card:hover{
+
+  transform:translateY(-4px);
+
+  box-shadow:var(--shadow-lg);
+}
+
+/* pastel cards */
+
+.card-blue{
+
+  background:
+          linear-gradient(
+                  135deg,
+                  #f2f5ff,
+                  #edf3ff
+          );
+}
+
+.card-green{
+
+  background:
+          linear-gradient(
+                  135deg,
+                  #effdf5,
+                  #e5fff1
+          );
+}
+
+.card-yellow{
+
+  background:
+          linear-gradient(
+                  135deg,
+                  #fffaf0,
+                  #fff6db
+          );
+}
+
+.card-pink{
+
+  background:
+          linear-gradient(
+                  135deg,
+                  #fff4f6,
+                  #fff0f8
+          );
+}
+
+.card-purple{
+
+  background:
+          linear-gradient(
+                  135deg,
+                  #f7f4ff,
+                  #f1ecff
+          );
+}
+
+/* -------------------------------- */
+/* Buttons */
+/* -------------------------------- */
+
+.button-primary{
+
+  background:#5b6cff;
+
+  color:white;
+
+  border-radius:18px;
+
+  padding:
+          14px
+          28px;
+
+  font-weight:600;
+
+  transition:.25s;
+
+  box-shadow:
+          0 10px 24px
+          rgba(91,108,255,.25);
+}
+
+.button-primary:hover{
+
+  background:#4f61ff;
+
+  transform:translateY(-2px);
+}
+
+.button-secondary{
+
+  background:white;
+
+  border:1px solid rgba(0,0,0,.05);
+
+  border-radius:18px;
+
+  transition:.25s;
+}
+
+.button-secondary:hover{
+
+  background:#fafafa;
+}
+
+/* -------------------------------- */
+/* Profile Image */
+/* -------------------------------- */
+
+.avatar{
+
+  border-radius:999px;
+
+  border:8px solid white;
+
+  box-shadow:var(--shadow);
+}
+
+/* -------------------------------- */
+/* Social Buttons */
+/* -------------------------------- */
+
+.social{
+
+  width:64px;
+
+  height:64px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:999px;
+
+  background:white;
+
+  box-shadow:var(--shadow-sm);
+
+  transition:.25s;
+}
+
+.social:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:var(--shadow);
+}
+
+/* -------------------------------- */
+/* Link Cards */
+/* -------------------------------- */
+
+.link-card{
+
+  border-radius:28px;
+
+  padding:28px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  transition:.25s;
+
+  box-shadow:var(--shadow);
+}
+
+.link-card:hover{
+
+  transform:translateY(-5px);
+
+  box-shadow:var(--shadow-lg);
+}
+
+/* -------------------------------- */
+/* Typography */
+/* -------------------------------- */
+
+.title{
+
+  font-size:clamp(2rem,4vw,3rem);
+
+  font-weight:800;
+
+  line-height:1.05;
+
+  letter-spacing:-0.04em;
+}
+
+.subtitle{
+
+  font-size:1.125rem;
+
+  color:#6b7280;
+
+  line-height:1.8;
+}
+
+.card-title{
+
+  font-size:1.25rem;
+
+  font-weight:700;
+}
+
+.card-description{
+
+  color:#6b7280;
+}
+
+/* -------------------------------- */
+/* Blur Decorations */
+/* -------------------------------- */
+
+.blur-blue{
+
+  position:absolute;
+
+  width:400px;
+
+  height:400px;
+
+  background:#dbeafe;
+
+  filter:blur(120px);
+
+  opacity:.45;
+
+  border-radius:999px;
+}
+
+.blur-pink{
+
+  position:absolute;
+
+  width:350px;
+
+  height:350px;
+
+  background:#ffe4ef;
+
+  filter:blur(120px);
+
+  opacity:.35;
+
+  border-radius:999px;
+}
+
+.blur-green{
+
+  position:absolute;
+
+  width:300px;
+
+  height:300px;
+
+  background:#dcfce7;
+
+  filter:blur(120px);
+
+  opacity:.4;
+
+  border-radius:999px;
+}
+
+/* -------------------------------- */
+/* Scrollbar */
+/* -------------------------------- */
+
+::-webkit-scrollbar{
+
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:#d9d9d9;
+
+  border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+  background:#bdbdbd;
+}
+
+/* -------------------------------- */
+/* Floating Animation */
+/* -------------------------------- */
+
+@keyframes float{
+
+  0%{
+    transform:translateY(0px);
   }
+
+  50%{
+    transform:translateY(-8px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.float{
+
+  animation:float 5s ease-in-out infinite;
+}
+
+/* -------------------------------- */
+/* Fade */
+/* -------------------------------- */
+
+@keyframes fadeUp{
+
+  from{
+
+    opacity:0;
+
+    transform:
+            translateY(20px);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+            translateY(0);
+  }
+
+}
+
+.fade-up{
+
+  animation:
+          fadeUp .7s ease;
 }
