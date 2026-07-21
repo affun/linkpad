@@ -8,7 +8,7 @@ import Footer from "@/app/components/landing/Footer";
 
 const Home = () => {
     return (
-        <div className={"container-page"}>
+        <div className={"container-page pt-4"}>
             <Navbar/>
             {/*<Hero/>*/}
             {/*<Features/>*/}
